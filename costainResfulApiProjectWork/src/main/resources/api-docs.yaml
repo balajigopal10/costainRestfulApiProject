@@ -1,0 +1,83 @@
+openapi: 3.0.1
+info:
+  title: Rest API Product
+  description: "Restful API's for String stringConcatenation, Float Addition & Modulo\
+    \ Operation"
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+paths:
+  /restDemoController/stringConcatenation:
+    post:
+      tags:
+      - rest-demo-controller
+      summary: Will concatenate a list of strings sent in the request
+      operationId: stringConcatenation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+        required: true
+      responses:
+        "200":
+          description: String Concatenation successful
+          content:
+            application/json: {}
+        "404":
+          description: String Concatenation failure
+          content:
+            application/json: {}
+  /restDemoController/moduloOperation:
+    post:
+      tags:
+      - rest-demo-controller
+      summary: Returns the signed remainder of division for the two numbers sent in
+        the request
+      operationId: moduloOperation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+        required: true
+      responses:
+        "404":
+          description: Modulo operation failure
+          content:
+            application/json: {}
+        "200":
+          description: Modulo operation successful
+          content:
+            application/json: {}
+        "500":
+          description: Please provide valid parameters
+          content:
+            application/json: {}
+  /restDemoController/floatAddition:
+    post:
+      tags:
+      - rest-demo-controller
+      summary: Sums up the list of floating point numbers sent in the request
+      operationId: floatAddition
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: number
+                format: double
+        required: true
+      responses:
+        "200":
+          description: Float addition successful
+          content:
+            application/json: {}
+        "404":
+          description: Float addition failure
+          content:
+            application/json: {}
+components: {}
